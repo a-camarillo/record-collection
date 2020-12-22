@@ -77,10 +77,16 @@ def extract_consecutive_elements(element_list:list,num_elements:int):
 
     return segmented_list
 
+def text_to_list(text_file):
+    '''
+    This function will read in a text file and put the contents in a list
 
-
-
-
-
-        
-
+        Attributes:
+            text_file -- the filepath for the text file to be read in
+        Returns:
+            file_list -- the list containing the elements of the text file
+    '''
+    with open(text_file,'r') as f:
+        file_list = [i.rstrip('\n') for i in f]
+    return file_list
+    
