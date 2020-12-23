@@ -136,3 +136,7 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+#ignore data files in data collection directory
+/data_collection/*.txt
+/data_collection/*.json 

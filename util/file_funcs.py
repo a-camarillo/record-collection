@@ -1,4 +1,5 @@
 import json
+from os import path
 '''
 This file will have functions related to working with files and data structures
 '''
@@ -38,21 +39,21 @@ def text_to_list(filepath):
         file_list = [i.rstrip('\n') for i in f]
     return file_list
 
- def dict_to_json(dictionary:dict,filepath):
-     '''
-     This function will pass in a dict and store the dict to a json file
+def dict_to_json(dictionary:dict,filepath):
+    '''
+    This function will pass in a dict and store the dict to a json file
      
         Attributes:
             dictionary -- the dict to be passed into the function
         Returns:
             None
-     '''
-     if filepath:
-         with open(filepath,'a') as f:
+    '''
+    if path.exists(filepath):
+        with open(filepath,'a') as f:
              json.dump(dictionary,f)
-     else:
-         with open(filepath,'w') as f:
+    else:
+        with open(filepath,'w') as f:
              json.dump(dictionary,f)
     
-     return 
+    return 
     
