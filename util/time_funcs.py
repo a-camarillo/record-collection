@@ -1,6 +1,5 @@
 '''
 This file will be for all time related functions used for this project
-
 '''
 class TimeValueError(Exception):
     '''Exception raised if illegal time value is passed
