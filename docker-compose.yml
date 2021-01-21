@@ -1,13 +1,17 @@
 version: '3.4'
 
 services:
-  vinyls:
-    build: .
+  db:
+    image: records:v1
     volumes:
-      - .:/usr/src/app
+      - ./pg-data:/var/lib/postgresql/data/pgdata
+    ports:
+      - '5432:5432'
     environment:
-      - SPOTIPY_CLIENT_ID=${SPOTIPY_CLIENT_ID}
-      - SPOTIPY_CLIENT_SECRET=${SPOTIPY_CLIENT_SECRET}
-      - SPOTIPY_REDIRECT_URI=${SPOTIPY_REDIRECT_URI}
+      - "POSTGRES_USER=pguser"
+      - "POSTGRES_PASSWORD=password"
+      - "POSTGRES_DB=record_collection"
+      - "PGDATA=/var/lib/postgresql/data/pgdata"
 
-
+volumes:
+  pg-data:
